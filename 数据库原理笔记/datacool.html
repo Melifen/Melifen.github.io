@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>数据库原理笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="#第一章 数据库概述##数据库系统阶段的主要特点   数据结构化（数据库系统与文件系统的本质区别）  数据的共享程度高，冗余度小，容易扩充  数据独立性高##数据库的体系结构 数据库的三级模式结构 外模式又称为用户模式或者子模式，它是数据库用户（包括应用程序员和最终用户）能够看见和使用的局部数据的逻辑结构和特征的描述。一个数据库可以有多个外模式，但一个应用程序只能使用同一个外模式。 模式又称概念模">
+<meta property="og:type" content="website">
+<meta property="og:title" content="数据库原理笔记">
+<meta property="og:url" content="http://example.com/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/datacool.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="#第一章 数据库概述##数据库系统阶段的主要特点   数据结构化（数据库系统与文件系统的本质区别）  数据的共享程度高，冗余度小，容易扩充  数据独立性高##数据库的体系结构 数据库的三级模式结构 外模式又称为用户模式或者子模式，它是数据库用户（包括应用程序员和最终用户）能够看见和使用的局部数据的逻辑结构和特征的描述。一个数据库可以有多个外模式，但一个应用程序只能使用同一个外模式。 模式又称概念模">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200609221239309.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NqanNhYWFh,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://gss0.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/3801213fb80e7bec20efcb0a212eb9389b506b20.jpg">
+<meta property="og:image" content="http://a1.qpic.cn/psc?/V13B5HNq390NFq/05RlWl8gsTOH*Z17MtCBzEurYxEfWyn*oFyLnsM7.b7uTHvMUxRhrKfq9zhaNP2rh*mCfMp5smk9ks3nmrTcsg!!/c&ek=1&kp=1&pt=0&bo=OAS0BDgEtAQRADc!&tl=1&tm=1645016400&sce=0-12-12&rf=0-18">
+<meta property="article:published_time" content="2022-02-16T14:32:35.000Z">
+<meta property="article:modified_time" content="2022-02-16T14:35:20.985Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200609221239309.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NqanNhYWFh,size_16,color_FFFFFF,t_70">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/datacool.html" class="article-date">
+  <time class="dt-published" datetime="2022-02-16T14:32:35.000Z" itemprop="datePublished">2022-02-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      数据库原理笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>#第一章 数据库概述<br>##数据库系统阶段的主要特点</p>
+<ol>
+<li> <strong>数据结构化（数据库系统与文件系统的本质区别）</strong></li>
+<li> <strong>数据的共享程度高，冗余度小，容易扩充</strong></li>
+<li> <strong>数据独立性高</strong><br>##数据库的体系结构</li>
+<li><strong>数据库的三级模式结构</strong><ol>
+<li><em><strong>外模式</strong></em><br>又称为用户模式或者子模式，它是数据库用户（包括应用程序员和最终用户）能够看见和使用的局部数据的逻辑结构和特征的描述。一个数据库可以有多个外模式，但一个应用程序只能使用同一个外模式。</li>
+<li><em><strong>模式</strong></em><br>又称概念模式或者逻辑模式，是数据库中全体数据的逻辑结构和特征的描述，是所有用户的公共试图。一个数据库只有一个模式。</li>
+<li><em><strong>内模式</strong></em><br>又称存储模式或物理模式，是数据物理结构和存储方式的描述，是数据在数据库内部的表示方式，如数据是否加密、是否压缩存储等。一个数据库只有一个内模式。</li>
+</ol>
+</li>
+<li>3级模式间的两级映像<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em><strong>外模式/模式映像</strong></em> 和 <em><strong>模式/内模式映像</strong></em><br> 数据库管理系统的三级模式结构和两级映像保证了数据库中的数据又很高的物理独立性和逻辑独立性。<br> 逻辑独立性指的是当数据库的<strong>模式</strong>发生改变时，应用程序不需要改变，（数据库管理员可以对各个<strong>外模式/模式的映像</strong>做出改变）。<br> 物理独立性是指当数据库的存储结构发生改变，数据库管理员只需要对模式/内模式之间的映像做相应改变，从而可以使模式不必改变，因此应用程序也不用改变，保证了物理独立性。</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20200609221239309.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NqanNhYWFh,size_16,color_FFFFFF,t_70" alt="三级模式图"><br>##<strong>数据模型</strong><br>人们把客观存在的事实以数据的形式存储到计算机中，经历了对现实生活中事物特征的认识，概念化到计算机数据库里的具体表示的逐级抽象过程。此过程分为三个阶段，即现实世界、信息世界、机器世界。</p>
+<ol>
+<li>概念模型（将现实世界转换成信息世界使用的模型）<br> 信息世界中的基本概念：<ol>
+<li><strong>实体</strong> ：可以是人、事、物或者抽象的概念或联系，如演出，学生选课。 </li>
+<li><strong>属性</strong> ：一个实体由若干个属性来刻画</li>
+<li><strong>域</strong> ： 学生的域是{男，女}</li>
+<li><strong>码</strong> ：关键字，能体现与众不同的属性</li>
+<li><strong>实体型</strong> ：用实体名及其属性名集合来抽象和刻画同类实体，称为实体型，如学生</li>
+<li><strong>实体集</strong> ：同型实体的集合</li>
+<li><strong>联系</strong> ：</li>
+</ol>
+ <em><strong>一对一联系</strong></em> ：一个班有一个班长<br> <em><strong>一对多联系</strong></em> ：一个班有若干哥学生<br> <em><strong>多对多联系</strong></em> ：一门课有多个学生选修，一个学生可以选修多门课</li>
+<li> 实体联系方法 （E-R方法）</li>
+</ol>
+<p><strong>矩形</strong>框里写实体名<br><strong>椭圆形</strong>框里写属性名字<br>联系用<strong>菱形</strong><br>如下图：<br><img src="https://gss0.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/3801213fb80e7bec20efcb0a212eb9389b506b20.jpg" alt="E-R图"><br>3.  数据模型<br>数据模型三要素：数据结构、数据操作、完整性约束。<br>    1. <strong>层次数据模型</strong><br>        层次数据模型采用树形层次结构来组织数据。<br>              &nbsp;&nbsp;&nbsp;&nbsp;1. 整个模型有且只有一个节点没有父节点<br>              &nbsp;&nbsp;&nbsp;&nbsp;2. 所有节点都不能脱离父节点而单独存在<br>              &nbsp;&nbsp;&nbsp;&nbsp;3. 每个记录类型有且只有一条从父节点通向自身的路径<br>              优点：模型简单、系统性能好，查询效率较高、提供了较好的数据完整性支持。<br>              缺点：结构缺乏灵活性、对插入和删除操作的限制比较多、查询子节点必须通过双亲节点。<br>    2. <strong>网状数据模型</strong><br>    &nbsp;&nbsp;&nbsp;&nbsp;    1. 网状数据模型采用有向图表示实体与实体之间的联系。<br>    &nbsp;&nbsp;&nbsp;&nbsp;    2. 网状数据模型中所有的节点都允许脱离父节点而存在。<br>    &nbsp;&nbsp;&nbsp;&nbsp;    3. 节点之间的对应关系不再是1：n，而是m：n 。<br>    优点：方便表示复杂关系、修改模型时，没有严格限制、实体之间的关系在底层可以通过指针实现，执行操作的效率较高<br>    缺点：结构复杂，使用不易、数据的插入和删除牵动的数据太多，不利于维护、采用的DDL语言和DML语言较为复杂，用户不容易掌握。<br>    3. <strong>关系数据模型</strong><br>    关系数据模型由关系数据结构，关系操作的集合和关系完整性约束三部分组成。<br>    关系数据模型的逻辑数据结构是一张<strong>二维表</strong>。<br>    概念：<br>     （1）一个<strong>关系</strong>就是一个二维表，如学生表就是学生关系<br>     （2）二维表的行称为<strong>元组</strong><br>     （3）二维表的列称为<strong>属性</strong><br>     （4）<strong>关系模式</strong>即对关系的描述。<br>     如学生关系模式为 学生（学号、姓名、性别、年龄）<br>     （5）<strong>主码</strong>即从候选码中选出来的一个<br>     （6）<strong>分量</strong>表示元组中的一个属性值<br>     （7）<strong>外码</strong>，又称外键，指某个属性不是A表的主码，但是B表的主码，则在A表中叫做外码<br>     （8）包含在任何候选关键字中的各个属性成为<strong>主属性</strong>，反之则是<strong>非主属性</strong>。<br>    性质：<br>       1. 所有属性都是元组的<br>       2. 元组的顺序无关紧要，即次序可以任意交换<br>       3. 属性的顺序是非排序的<br>       4. 同一属性名下的诸属性值是同类型数据且来自同一个域<br>       5. 关系中没有重复元组<br>       6. 属性必须具有不同的属性名，即不同的属性可来自同一个域</p>
+<pre><code>    关系的完整性规则：
+    1. **实体完整性**：所有元组都是唯一的，没有完全相同的
+    2. **参照完整性**：当一张数据表中有外部关键字时，外部关键字列的所有值，都必须出现在其所对应的表中
+    如：学生（学号、姓名、性别、班级号、年龄、籍贯）
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;班级（班级号、班级名、班主任姓名）
+    这两个关系之间存在着属性的引用，学生关系的班级号引用了班级关系的班级号。也就是说，学生关系中的班级号的取值要参照班级关系的属性取值。
+    3. **用户自定义完整性**：是指针对某个具体数据的约束条件，由具体应用环境决定。数据必须满足语义的要求，比如性别只能是“男”或者“女”，年龄取值只能限制在 0~150 才合理
+</code></pre>
+<p>##关系的运算</p>
+<ol>
+<li> 并</li>
+<li> 交</li>
+<li> 差 （属于R的不属于S的）</li>
+<li> 笛卡尔积（R×S）</li>
+<li> <strong>选择</strong>  （选符合条件的元组）</li>
+<li> <strong>投影</strong>  （选出所需要的属性组成的新二维表）</li>
+<li><strong>链接</strong>  （条件链接、等值链接、自然链接）<br><img src="http://a1.qpic.cn/psc?/V13B5HNq390NFq/05RlWl8gsTOH*Z17MtCBzEurYxEfWyn*oFyLnsM7.b7uTHvMUxRhrKfq9zhaNP2rh*mCfMp5smk9ks3nmrTcsg!!/c&ek=1&kp=1&pt=0&bo=OAS0BDgEtAQRADc!&tl=1&tm=1645016400&sce=0-12-12&rf=0-18" alt="三个链接"><br>以上三个链接属于内连接<br>外连接要求还要把舍弃的元组也保存在结果关系中，而在其他属性上填空值NULL</li>
+</ol>
+<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><p>待续</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/datacool.html" data-id="ckzpnq9m50000r0udd0jd3uzb" data-title="数据库原理笔记" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/02/06/First-Blog/">First Blog</a>
+          </li>
+        
+          <li>
+            <a href="/2022/01/31/hello-world/">Hello World 欢迎来到我的博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
